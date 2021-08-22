@@ -1,4 +1,6 @@
-version: "3" #This denotes that we are using version 3 of Docker Compose
-services: #This section defines all the different containers we will create.
-    app: #This is the name of our Nextjs application.
-        command: prod #command to execute
+version: "3"
+services:
+  app:
+    environment:
+      - NODE_ENV=production
+    command: prod

@@ -1,11 +1,10 @@
-version: "3" #This denotes that we are using version 3 of Docker Compose
-services: #This section defines all the different containers we will create.
-    app: #This is the name of our Nextjs application.
-        environment:
-            - NODE_ENV=development
-        command: dev #command to execute
-                #This is just like the -v option for mounting disks in Docker. In this              example, we attach our code files directory to the containers’ ./code              directory.  This way, we won’t have to rebuild the images if changes are           made.
-        volumes:
-            - ./src:/usr/src/app
-            - /usr/src/app/node_modules
-            - /usr/src/app/.next
+version: "3"
+services:
+  app:
+    environment:
+        - NODE_ENV=development
+    command: dev
+    volumes:
+        - ./src:/usr/src/app
+        - /usr/src/app/node_modules
+        - /usr/src/app/.next
