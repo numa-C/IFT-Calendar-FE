@@ -4,7 +4,24 @@ import { NextPage } from 'next';
 import styles from '../styles/Home.module.css';
 import { Button } from '@material-ui/core';
 
+import { initializeApp } from 'firebase/app';
+// import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+
 const Home: NextPage = () => {
+  login();
+  function login(): void {
+    const firebaseConfig = {
+      apiKey: "AIzaSyA9Uv2ZHfDco0eOhJnzPe3WiQodrFEEpCw",
+      authDomain: "ift-any.firebaseapp.com",
+      projectId: "ift-any",
+      storageBucket: "ift-any.appspot.com",
+      messagingSenderId: "400528320028",
+      appId: "1:400528320028:web:390b38315157bfa5f6a1d9",
+      measurementId: "G-L4S28HB2NP"
+    };
+    const app = initializeApp(firebaseConfig);
+  }
+
   return (
     <div className={styles.container}>
       <Head>
