@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type User = {
   name: string | null
@@ -6,14 +6,14 @@ export type User = {
   email: string | null
   token: string | null
   history: string[]
-}
+};
 
 export type UserState = {
   user: User
-}
+};
 
-export type UpdateUserPayload = User
-export type AddHistoryPayload = string
+export type UpdateUserPayload = User;
+export type AddHistoryPayload = string;
 
 const initialState: UserState = {
   user: {
@@ -23,7 +23,7 @@ const initialState: UserState = {
     token: null,
     history: [],
   },
-}
+}; 
 
 export const userSlice = createSlice({
   name: 'user',
@@ -40,4 +40,4 @@ export const userSlice = createSlice({
       return initialState
     },
   },
-})
+});
