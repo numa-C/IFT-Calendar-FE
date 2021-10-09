@@ -2,8 +2,9 @@ import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
-import { useStore } from '../state/store';
 import 'tailwindcss/tailwind.css';
+
+import { useStore } from '../state/store';
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   const store = useStore();
@@ -15,7 +16,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
         <Component {...pageProps} />
       </PersistGate>
     </Provider>
-  );
+  )
 };
 
 export default MyApp;
