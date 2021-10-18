@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../state/store';
 import { userSlice } from '../state/ducks/user';
 
-// import { Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
-const StorePage = (): JSX.Element => {
+const HomePage = (): JSX.Element => {
   const dispatch = useDispatch(); 
   const user = useSelector((state: RootState) => state.user);
 
@@ -39,31 +39,17 @@ const StorePage = (): JSX.Element => {
   return (
     <div>
       <h1>storeの動作確認</h1>
-      <p>
-        <button type="button" onClick={handleConfirm}>
-          確認
-        </button>
-      </p>
+      <Button variant="contained" onClick={handleConfirm}>CONFIRM</Button>{ ' ' }
 
-      <p>
-        <button type="button" onClick={handleUpdate}>
-          update
-        </button>
-      </p>
+      <Button variant="contained" color="primary" onClick={handleUpdate}>UPDATE</Button>{ ' ' }
 
-      <p>
-        <button type="button" onClick={handleReset}>
-          reset
-        </button>
-      </p>
+      <Button variant="contained" color="secondary" onClick={handleReset}>RESET</Button>{ ' ' }
 
-      <p>
-        <button type="button" onClick={handleAddHistory}>
-          addHistory
-        </button>
-      </p>
+      <Button variant="contained" color="primary" onClick={handleAddHistory}>ADD_HISTORY</Button>{' '}
+
+      <Button variant="contained" disabled>Disabled</Button>{ ' ' }
     </div>
   )
 };
 
-export default StorePage;
+export default HomePage;

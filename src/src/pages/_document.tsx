@@ -1,5 +1,7 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import theme from './theme'
+
 
 interface MyDocumentInterface {
   url: string
@@ -27,6 +29,9 @@ class MyDocument extends Document implements MyDocumentInterface {
           <meta property="og:image" content={`${this.url}/ogp.png`} />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="format-detection" content="telephone=no" />
+          {/* PWA primary color */}
+          <meta name="theme-color" content={theme.palette.primary.main} />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         </Head>
         <body>
