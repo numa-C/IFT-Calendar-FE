@@ -7,46 +7,99 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-// import mainListItems from './listItemsMain';
-// import secondaryListItems from './listItemsSecond';
-import Chart from './Chart';
-import Deposits from './Deposits';
-import Orders from './Orders';
-
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
-import AssignmentIcon from '@mui/icons-material/Assignment';
+
+import Chart from './Chart';
+import Deposits from './Deposits';
+import Orders from './Orders';
 
 
-function Copyright(props: any) {
+const MissionMenu = () => {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
+    <List>
+      <ListItem button>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <ShoppingCartIcon />
+        </ListItemIcon>
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <BarChartIcon />
+        </ListItemIcon>
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <LayersIcon />
+        </ListItemIcon>
+      </ListItem>
+    </List>
+  )
 }
+
+const ServiceMenu = () => {
+  return (
+    <List>
+      <ListSubheader inset>Service Menu</ListSubheader>
+      <ListItem button>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <ListItemText primary="Dashboard" />
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <ShoppingCartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Orders" />
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+        <ListItemText primary="Customers" />
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <BarChartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Reports" />
+      </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <LayersIcon />
+        </ListItemIcon>
+        <ListItemText primary="Integrations" />
+      </ListItem>
+    </List>
+  )
+}
+
 
 const drawerWidth: number = 240;
 
@@ -110,7 +163,6 @@ function DashboardContent() {
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        {/* <AppBar position="absolute" open={open}> */}
         <AppBar position="absolute">
           <Toolbar
             sx={{
@@ -124,8 +176,6 @@ function DashboardContent() {
               onClick={toggleDrawer}
               sx={{
                 marginRight: '36px',
-                // ...({ display: 'none' }),
-                // ...(open && { display: 'none' }),
               }}
             >
               {open
@@ -149,7 +199,20 @@ function DashboardContent() {
             </IconButton>
           </Toolbar>
         </AppBar>
-        {/* <Drawer variant="permanent" open={open}> */}
+
+        <Drawer variant="permanent">
+          <Toolbar
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+              px: [1],
+            }}
+          >
+          </Toolbar>
+          <MissionMenu />
+        </Drawer>
+
         <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
@@ -159,72 +222,10 @@ function DashboardContent() {
               px: [1],
             }}
           >
-            {/* <IconButton onClick={toggleDrawer}>
-              <ChevronLeftIcon />
-            </IconButton> */}
           </Toolbar>
-          <Divider />
-          {/* <List>{mainListItems}</List> */}
-          <List>
-            <div>
-              <ListItem button>
-                <ListItemIcon>
-                  <DashboardIcon />
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-              </ListItem>
-              <ListItem button>
-                <ListItemIcon>
-                  <ShoppingCartIcon />
-                </ListItemIcon>
-                <ListItemText primary="Orders" />
-              </ListItem>
-              <ListItem button>
-                <ListItemIcon>
-                  <PeopleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Customers" />
-              </ListItem>
-              <ListItem button>
-                <ListItemIcon>
-                  <BarChartIcon />
-                </ListItemIcon>
-                <ListItemText primary="Reports" />
-              </ListItem>
-              <ListItem button>
-                <ListItemIcon>
-                  <LayersIcon />
-                </ListItemIcon>
-                <ListItemText primary="Integrations" />
-              </ListItem>
-            </div>
-          </List>
-          <Divider />
-          {/* <List>{secondaryListItems}</List> */}
-          <List>
-            <div>
-              <ListSubheader inset>Saved reports</ListSubheader>
-              <ListItem button>
-                <ListItemIcon>
-                  <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Current month" />
-              </ListItem>
-              <ListItem button>
-                <ListItemIcon>
-                  <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Last quarter" />
-              </ListItem>
-              <ListItem button>
-                <ListItemIcon>
-                  <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary="Year-end sale" />
-              </ListItem>
-            </div>
-          </List>
+          <ServiceMenu />
         </Drawer>
+
         <Box
           component="main"
           sx={{
