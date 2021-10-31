@@ -11,7 +11,7 @@ import { CssBaseline } from '@material-ui/core'
 import { ThemeProvider, createTheme } from '@material-ui/core/styles'
 import blue from '@material-ui/core/colors/blue';
 import { useStore } from '../state/store';
-import theme from './theme'
+import theme from '../theme'
 
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
