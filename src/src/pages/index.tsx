@@ -17,8 +17,8 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import mainListItems from './listItemsMain';
-import secondaryListItems from './listItemsSecond';
+// import mainListItems from './listItemsMain';
+// import secondaryListItems from './listItemsSecond';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
@@ -101,7 +101,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const mdTheme = createTheme();
 
 function DashboardContent() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -110,7 +110,8 @@ function DashboardContent() {
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open}>
+        {/* <AppBar position="absolute" open={open}> */}
+        <AppBar position="absolute">
           <Toolbar
             sx={{
               pr: '24px', // keep right padding when drawer closed
@@ -123,10 +124,14 @@ function DashboardContent() {
               onClick={toggleDrawer}
               sx={{
                 marginRight: '36px',
-                ...(open && { display: 'none' }),
+                // ...({ display: 'none' }),
+                // ...(open && { display: 'none' }),
               }}
             >
-              <MenuIcon />
+              {open
+                ? <ChevronLeftIcon />
+                : <MenuIcon />
+              }
             </IconButton>
             <Typography
               component="h1"
@@ -144,6 +149,7 @@ function DashboardContent() {
             </IconButton>
           </Toolbar>
         </AppBar>
+        {/* <Drawer variant="permanent" open={open}> */}
         <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
@@ -153,9 +159,9 @@ function DashboardContent() {
               px: [1],
             }}
           >
-            <IconButton onClick={toggleDrawer}>
+            {/* <IconButton onClick={toggleDrawer}>
               <ChevronLeftIcon />
-            </IconButton>
+            </IconButton> */}
           </Toolbar>
           <Divider />
           {/* <List>{mainListItems}</List> */}
@@ -267,7 +273,7 @@ function DashboardContent() {
                 </Paper>
               </Grid>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+            {/* <Copyright sx={{ pt: 4 }} /> */}
           </Container>
         </Box>
       </Box>
