@@ -9,20 +9,39 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
+// ==
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+
+
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 };
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})<AppBarProps>(({ theme, open }) => ({
-  transition: theme.transitions.create(['margin', 'width'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  })
-}));
+const AppBar = styled(MuiAppBar, )<AppBarProps>
+  (({ theme }) => ({
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    })
+  }));
+
 
 const Header = () => {
+  // ==
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
+
   return (
     <AppBar position='absolute'>
       <Toolbar
@@ -30,20 +49,21 @@ const Header = () => {
           pr: '24px'
         }}
       >
-        <IconButton
+        
+        {/* <IconButton
           edge='start'
           color='inherit'
           aria-label='open drawer'
-          // onClick={toggleDrawer}
+          onClick={toggleDrawer}
           sx={{
             marginRight: '36px',
           }}
         >
           <MenuIcon />
-          {/* {open
+          {open
                 ? <ChevronLeftIcon />
-              } */}
-        </IconButton>
+              }
+        </IconButton> */}
         <Typography
           component='h1'
           variant='h6'
