@@ -1,47 +1,46 @@
-import * as React from "react";
+import * as React from 'react';
 
-// mui
-import { styled } from "@mui/material/styles";
-import MuiDrawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import ListSubheader from "@mui/material/ListSubheader";
-import Toolbar from "@mui/material/Toolbar";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import IconButton from "@mui/material/IconButton";
-import LayersIcon from "@mui/icons-material/Layers";
-import MenuIcon from "@mui/icons-material/Menu";
-import PeopleIcon from "@mui/icons-material/People";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { styled } from '@mui/material/styles';
+import MuiDrawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ListSubheader from '@mui/material/ListSubheader';
+import Toolbar from '@mui/material/Toolbar';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import IconButton from '@mui/material/IconButton';
+import LayersIcon from '@mui/icons-material/Layers';
+import MenuIcon from '@mui/icons-material/Menu';
+import PeopleIcon from '@mui/icons-material/People';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 const ServiceMenu = () => {
   const drawerWidth: number = 240;
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => { setOpen(!open); };
-  const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" })(
+  const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
-      "& .MuiDrawer-paper": {
-        position: "relative",
-        whiteSpace: "nowrap",
+      '& .MuiDrawer-paper': {
+        position: 'relative',
+        whiteSpace: 'nowrap',
         width: drawerWidth,
-        transition: theme.transitions.create("width", {
+        transition: theme.transitions.create('width', {
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.enteringScreen,
         }),
-        boxSizing: "border-box",
+        boxSizing: 'border-box',
         ...(!open && {
-          overflowX: "hidden",
-          transition: theme.transitions.create("width", {
+          overflowX: 'hidden',
+          transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
           }),
           width: theme.spacing(7),
-          [theme.breakpoints.up("sm")]: {
+          [theme.breakpoints.up('sm')]: {
             width: theme.spacing(9),
           },
         }),
@@ -51,12 +50,12 @@ const ServiceMenu = () => {
 
   return (
     <React.Fragment>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant='permanent' open={open}>
         <Toolbar
           sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
             px: [1],
           }}
         >
@@ -64,12 +63,12 @@ const ServiceMenu = () => {
         <List>
           <ListItemIcon>
             <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
+              edge='start'
+              color='inherit'
+              aria-label='open drawer'
               onClick={toggleDrawer}
               sx={{
-                marginRight: "36px",
+                marginRight: '36px',
               }}
             >
               {open
@@ -78,37 +77,37 @@ const ServiceMenu = () => {
               }
             </IconButton>
           </ListItemIcon>
-            {/* <ListItemText primary="Dashboard" /> */}
+            {/* <ListItemText primary='Dashboard' /> */}
           <ListSubheader inset>Service Menu</ListSubheader>
           <ListItem button>
             <ListItemIcon>
               <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="Dashboard" />
+            <ListItemText primary='Dashboard' />
           </ListItem>
           <ListItem button>
             <ListItemIcon>
               <ShoppingCartIcon />
             </ListItemIcon>
-            <ListItemText primary="Orders" />
+            <ListItemText primary='Orders' />
           </ListItem>
           <ListItem button>
             <ListItemIcon>
               <PeopleIcon />
             </ListItemIcon>
-            <ListItemText primary="Customers" />
+            <ListItemText primary='Customers' />
           </ListItem>
           <ListItem button>
             <ListItemIcon>
               <BarChartIcon />
             </ListItemIcon>
-            <ListItemText primary="Reports" />
+            <ListItemText primary='Reports' />
           </ListItem>
           <ListItem button>
             <ListItemIcon>
               <LayersIcon />
             </ListItemIcon>
-            <ListItemText primary="Integrations" />
+            <ListItemText primary='Integrations' />
           </ListItem>
         </List>
       </Drawer>

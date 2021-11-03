@@ -1,33 +1,32 @@
-import * as React from "react";
+import * as React from 'react';
 
-// mui
-import { styled } from "@mui/material/styles";
-import MuiDrawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Toolbar from "@mui/material/Toolbar";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import LayersIcon from "@mui/icons-material/Layers";
-import PeopleIcon from "@mui/icons-material/People";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { styled } from '@mui/material/styles';
+import MuiDrawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Toolbar from '@mui/material/Toolbar';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import LayersIcon from '@mui/icons-material/Layers';
+import PeopleIcon from '@mui/icons-material/People';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 const MissionMenu = () => {
   const Drawer = styled(MuiDrawer)(
     ({ theme }) => ({
-      "& .MuiDrawer-paper": {
-        position: "relative",
-        whiteSpace: "nowrap",
-        boxSizing: "border-box",
-        overflowX: "hidden",
-        transition: theme.transitions.create("width", {
+      '& .MuiDrawer-paper': {
+        position: 'relative',
+        whiteSpace: 'nowrap',
+        boxSizing: 'border-box',
+        overflowX: 'hidden',
+        transition: theme.transitions.create('width', {
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.leavingScreen,
         }),
         width: theme.spacing(7),
-        [theme.breakpoints.up("sm")]: {
+        [theme.breakpoints.up('sm')]: {
           width: theme.spacing(9),
         },
       },
@@ -36,12 +35,12 @@ const MissionMenu = () => {
 
   return (
     <React.Fragment>
-      <Drawer variant="permanent">
+      <Drawer variant='permanent'>
         <Toolbar
           sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
             px: [1],
           }}
         >
