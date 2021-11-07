@@ -49,68 +49,66 @@ const ServiceMenu = () => {
   );
 
   return (
-    <React.Fragment>
-      <Drawer variant='permanent' open={open}>
-        <Toolbar
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            px: [1],
-          }}
-        >
-        </Toolbar>
-        <List>
+    <Drawer variant='permanent' open={open}>
+      <Toolbar
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          px: [1],
+        }}
+      >
+      </Toolbar>
+      <List>
+        <ListItemIcon>
+          <IconButton
+            edge='start'
+            color='inherit'
+            aria-label='open drawer'
+            onClick={toggleDrawer}
+            sx={{
+              marginRight: '36px',
+            }}
+          >
+            {open
+              ? <ChevronLeftIcon />
+              : <MenuIcon />
+            }
+          </IconButton>
+        </ListItemIcon>
+        <ListSubheader inset>Service Menu</ListSubheader>
+        <ListItem button>
           <ListItemIcon>
-            <IconButton
-              edge='start'
-              color='inherit'
-              aria-label='open drawer'
-              onClick={toggleDrawer}
-              sx={{
-                marginRight: '36px',
-              }}
-            >
-              {open
-                ? <ChevronLeftIcon />
-                : <MenuIcon />
-              }
-            </IconButton>
+            <DashboardIcon />
           </ListItemIcon>
-          <ListSubheader inset>Service Menu</ListSubheader>
-          <ListItem button>
-            <ListItemIcon>
-              <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary='Dashboard' />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <ShoppingCartIcon />
-            </ListItemIcon>
-            <ListItemText primary='Orders' />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <PeopleIcon />
-            </ListItemIcon>
-            <ListItemText primary='Customers' />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <BarChartIcon />
-            </ListItemIcon>
-            <ListItemText primary='Reports' />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <LayersIcon />
-            </ListItemIcon>
-            <ListItemText primary='Integrations' />
-          </ListItem>
-        </List>
-      </Drawer>
-    </React.Fragment>
+          <ListItemText primary='Dashboard' />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <ShoppingCartIcon />
+          </ListItemIcon>
+          <ListItemText primary='Orders' />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <PeopleIcon />
+          </ListItemIcon>
+          <ListItemText primary='Customers' />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <BarChartIcon />
+          </ListItemIcon>
+          <ListItemText primary='Reports' />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <LayersIcon />
+          </ListItemIcon>
+          <ListItemText primary='Integrations' />
+        </ListItem>
+      </List>
+    </Drawer>
   );
 };
 

@@ -8,9 +8,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import PersonIcon from '@mui/icons-material/Person';
 
 import AllServicesMenu from './Headers/AllServicesMenu';
+import UserMenu from './Headers/UserMenu';
+import NotificationList from './Headers/NotificationList';
 
 
 interface AppBarProps extends MuiAppBarProps { open?: boolean };
@@ -25,10 +26,10 @@ const AppBar = styled(MuiAppBar, )<AppBarProps>(({ theme }) => ({
 
 const Header = () => {
   return (
-    <AppBar position='absolute'>
+    <AppBar>
       <Toolbar
         sx={{
-          pr: '24px'
+          pr: '24px',
         }}
       >
         <AllServicesMenu />
@@ -42,17 +43,9 @@ const Header = () => {
           ダッシュボード
         </Typography>
 
-        <IconButton color='inherit'>
-          <Badge badgeContent={4} color='secondary'>
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-
+        <NotificationList />
         <Box sx={{ mx: "0.2rem" }} />
-
-        <IconButton color='inherit'>
-          <PersonIcon />
-        </IconButton>
+        <UserMenu />
       </Toolbar>
     </AppBar>
   );

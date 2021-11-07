@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -8,13 +9,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 
-const AllServicesMenu = () => {
+const NotificationList = () => {
   const [open, setState] = React.useState(false);
 
   const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -36,7 +36,7 @@ const AllServicesMenu = () => {
       onKeyDown={toggleDrawer}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {['Notification1', 'Notification2', 'Notification3', 'Notification4'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -49,7 +49,7 @@ const AllServicesMenu = () => {
       <Divider />
 
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        {['Notification5', 'Notification6', 'Notification7'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -68,18 +68,14 @@ const AllServicesMenu = () => {
         color='inherit'
         aria-label='open drawer'
         onClick={toggleDrawer}
-        sx={{
-          marginRight: '36px',
-        }}
       >
-        {open
-          ? <ChevronLeftIcon />
-          : <MenuIcon />
-        }
+        <Badge badgeContent={1} color='secondary'>
+          <NotificationsIcon />
+        </Badge>
       </IconButton>
 
       <Drawer
-        anchor={"top"}
+        anchor={"right"}
         open={open}
         onClose={toggleDrawer}
       >
@@ -89,4 +85,4 @@ const AllServicesMenu = () => {
   );
 };
 
-export default AllServicesMenu;
+export default NotificationList;
