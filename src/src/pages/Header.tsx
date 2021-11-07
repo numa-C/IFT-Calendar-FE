@@ -1,13 +1,10 @@
 import * as React from 'react';
 
 import { styled } from '@mui/material/styles';
-import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 
 import AllServicesMenu from './Headers/AllServicesMenu';
 import UserMenu from './Headers/UserMenu';
@@ -42,7 +39,6 @@ const Header = () => {
         >
           ダッシュボード
         </Typography>
-
         <NotificationList />
         <Box sx={{ mx: "0.2rem" }} />
         <UserMenu />

@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -29,6 +28,7 @@ const UserMenu = () => {
       >
         <PersonIcon />
       </IconButton>
+
       <Menu
         id="user-menu"
         anchorEl={anchorEl}
