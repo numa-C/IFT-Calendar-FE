@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import AllServicesMenu from './Headers/AllServicesMenu';
 import UserMenu from './Headers/UserMenu';
 import NotificationList from './Headers/NotificationList';
+import TimerMenu from './Headers/TimerMenu';
 
 
 interface AppBarProps extends MuiAppBarProps { open?: boolean };
@@ -39,8 +40,13 @@ const Header = () => {
         >
           ダッシュボード
         </Typography>
+
+        <TimerMenu />
+        <Box sx={{ mx: "0.7rem" }} />
+
         <NotificationList />
-        <Box sx={{ mx: "0.2rem" }} />
+        <Box sx={{ mx: "0.6rem" }} />
+
         <UserMenu />
       </Toolbar>
     </AppBar>

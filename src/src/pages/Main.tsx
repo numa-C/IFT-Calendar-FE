@@ -25,8 +25,8 @@ function Main() {
       }}
     >
       <Toolbar />
-      <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
-        <Grid container spacing={3}>
+      <Container maxWidth='xl' sx={{ mt: 6, mb: 6 }}>
+        <Grid container spacing={8}>
 
           <Grid item xs={columns.xs} md={columns.md}>
             <Paper
@@ -34,9 +34,10 @@ function Main() {
                 p: 2,
                 display: 'flex',
                 flexDirection: 'column',
-                height: 240,
+                height: 350,
               }}
             >
+              カレンダー
             </Paper>
           </Grid>
 
@@ -46,9 +47,10 @@ function Main() {
                 p: 2,
                 display: 'flex',
                 flexDirection: 'column',
-                height: 240,
+                height: 350,
               }}
             >
+              ミッションリスト
             </Paper>
           </Grid>
 
@@ -58,9 +60,10 @@ function Main() {
                 p: 2,
                 display: 'flex',
                 flexDirection: 'column',
-                height: 240,
+                height: 350,
               }}
             >
+              タスクリスト
             </Paper>
           </Grid>
 
@@ -70,9 +73,10 @@ function Main() {
                 p: 2,
                 display: 'flex',
                 flexDirection: 'column',
-                height: 240,
+                height: 350,
               }}
             >
+              タスク更新リスト
             </Paper>
           </Grid>
         </Grid>
