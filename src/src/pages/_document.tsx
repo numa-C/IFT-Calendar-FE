@@ -11,8 +11,8 @@ interface MyDocumentInterface {
 
 class MyDocument extends Document implements MyDocumentInterface {
   url = '<https://example.com>';
-  title = 'Demo Next.js';
-  description = 'Demo of Next.js';
+  title = 'IFT-Any';
+  description = 'IFT-Any';
 
   render(): JSX.Element {
     return (

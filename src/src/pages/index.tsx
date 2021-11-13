@@ -9,14 +9,13 @@ import Main from './Main';
 import MissionMenu from  './MissionMenu';
 import ServiceMenu from  './ServiceMenu';
 
-const Dashboard = () => {
+const Index = () => {
   const mdTheme = createTheme();
 
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-
         <Header />
         <MissionMenu />
         <ServiceMenu />
@@ -26,4 +25,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Index;
