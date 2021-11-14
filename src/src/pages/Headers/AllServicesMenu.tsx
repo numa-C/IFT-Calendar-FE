@@ -66,6 +66,7 @@ const AllServicesMenu = () => {
       <IconButton
         edge='start'
         color='inherit'
+        size='large'
         aria-label='open drawer'
         onClick={toggleDrawer}
         sx={{

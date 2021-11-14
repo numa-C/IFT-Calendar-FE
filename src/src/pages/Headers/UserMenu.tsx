@@ -22,6 +22,7 @@ const UserMenu = () => {
         id="user-menu-button"
         aria-controls="user-menu"
         color='inherit'
+        size='large'
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}

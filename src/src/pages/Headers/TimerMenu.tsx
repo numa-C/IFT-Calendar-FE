@@ -4,15 +4,16 @@ import IconButton from '@mui/material/IconButton';
 import AlarmOnIcon from '@mui/icons-material/AlarmOn';
 
 
-const TimerrMenu = () => {
+const TimerMenu = () => {
 
   return (
     <>
       <IconButton
-        id="user-menu-button"
-        aria-controls="user-menu"
+        id="time-menu-button"
+        // aria-controls="timer-menu" // TODO: Should set in after id prop for timer menu is created.
+        // aria-haspopup="true" // // TODO: Should set in after timer menu created.
         color='inherit'
-        aria-haspopup="true"
+        size='large'
       >
         <AlarmOnIcon />
       </IconButton>
@@ -20,4 +21,4 @@ const TimerrMenu = () => {
   );
 }
 
-export default TimerrMenu;
+export default TimerMenu;

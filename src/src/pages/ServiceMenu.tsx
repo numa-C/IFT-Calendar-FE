@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -16,11 +17,13 @@ import LayersIcon from '@mui/icons-material/Layers';
 import MenuIcon from '@mui/icons-material/Menu';
 import PeopleIcon from '@mui/icons-material/People';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Calculate } from '@mui/icons-material';
 
 
 const ServiceMenu = () => {
   const drawerWidth: number = 240;
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true); // should be fix
   const toggleDrawer = () => { setOpen(!open); };
   const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
@@ -59,23 +62,25 @@ const ServiceMenu = () => {
         }}
       >
       </Toolbar>
+
+      <IconButton
+        aria-label='open drawer'
+        color='inherit'
+        edge='start'
+        size='large'
+        onClick={toggleDrawer}
+        sx={{
+          marginLeft: 'calc(100% - 60px)',
+          width: '50px'
+        }}
+      >
+        {open
+          ? <ChevronLeftIcon />
+          : <MenuIcon />
+        }
+      </IconButton>
+
       <List>
-        <ListItemIcon>
-          <IconButton
-            edge='start'
-            color='inherit'
-            aria-label='open drawer'
-            onClick={toggleDrawer}
-            sx={{
-              marginRight: '36px',
-            }}
-          >
-            {open
-              ? <ChevronLeftIcon />
-              : <MenuIcon />
-            }
-          </IconButton>
-        </ListItemIcon>
         <ListSubheader inset>Service Menu</ListSubheader>
         <ListItem button>
           <ListItemIcon>

@@ -64,9 +64,10 @@ const NotificationList = () => {
   return (
     <>
       <IconButton
-        edge='start'
-        color='inherit'
         aria-label='open drawer'
+        color='inherit'
+        edge='start'
+        size='large'
         onClick={toggleDrawer}
       >
         <Badge badgeContent={1} color='secondary'>
