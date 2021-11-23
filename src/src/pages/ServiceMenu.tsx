@@ -81,7 +81,7 @@ const ServiceMenu = () => {
   const classes = useStyles();
 
   return (
-    <Drawer variant='permanent' open={open}>
+    <Drawer variant='permanent' open={open} sx={{ height: '100vh', overflow: 'hidden' }}>
       <Toolbar
         sx={{
           display: 'flex',
@@ -110,7 +110,7 @@ const ServiceMenu = () => {
       
       <Divider />
 
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, overflow: 'scroll' }}>
         <AppBar
           color='transparent'
           position='static'
@@ -166,131 +166,133 @@ const ServiceMenu = () => {
         </Box>
         <Divider />
 
-        <Button
-          fullWidth
-          startIcon={<DateRangeIcon />}
-          sx={{
-            my: 1,
-            pl:2,
-            justifyContent: "start"
-          }}
-          variant="text"
-        >
-          カレンダーの追加
-        </Button>
-
-        {/* マイカレンダー */}
-        <AppBar
-          color='transparent'
-          position='static'
-          elevation={0}
-        >
-          <Toolbar
-            disableGutters
-            variant='dense'
-            className={classes.toolBar}
+        <Box>
+          <Button
+            fullWidth
+            startIcon={<DateRangeIcon />}
+            sx={{
+              my: 1,
+              pl:2,
+              justifyContent: "start"
+            }}
+            variant="text"
           >
-            <IconButton
-              size='small'
-              edge='start'
-              color='inherit'
-              aria-label='menu'
-              sx={{
-                mr: 2,
-                ml: 1
-              }}
+            カレンダーの追加
+          </Button>
+
+          {/* マイカレンダー */}
+          <AppBar
+            color='transparent'
+            position='static'
+            elevation={0}
+          >
+            <Toolbar
+              disableGutters
+              variant='dense'
+              className={classes.toolBar}
             >
-              <KeyboardArrowDownIcon />
-            </IconButton>
-            <Typography variant='subtitle2' component='div' sx={{ flexGrow: 1 }}>
-              マイカレンダー
-            </Typography>
-          </Toolbar>
-        </AppBar>
-
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-          {[0, 1, 2, 3].map((value) => {
-            const labelId = `checkbox-list-label-${value}`;
-
-            return (
-              <ListItem
-                disablePadding
-                key={value}
+              <IconButton
+                size='small'
+                edge='start'
+                color='inherit'
+                aria-label='menu'
+                sx={{
+                  mr: 2,
+                  ml: 1
+                }}
               >
-                <ListItemButton
-                  role={undefined}
-                  onClick={handleToggle(value)}
-                  dense
+                <KeyboardArrowDownIcon />
+              </IconButton>
+              <Typography variant='subtitle2' component='div' sx={{ flexGrow: 1 }}>
+                マイカレンダー
+              </Typography>
+            </Toolbar>
+          </AppBar>
+
+          <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            {[0, 1, 2, 3].map((value) => {
+              const labelId = `checkbox-list-label-${value}`;
+
+              return (
+                <ListItem
+                  disablePadding
+                  key={value}
                 >
-                  <ListItemIcon>
-                    <Checkbox
-                      edge="start"
-                      checked={checked.indexOf(value) !== -1}
-                      tabIndex={-1}
-                      disableRipple
-                      inputProps={{ 'aria-labelledby': labelId }}
-                    />
-                  </ListItemIcon>
-                  <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
-                </ListItemButton>
-              </ListItem>
-            );
-          })}
-        </List>
+                  <ListItemButton
+                    role={undefined}
+                    onClick={handleToggle(value)}
+                    dense
+                  >
+                    <ListItemIcon>
+                      <Checkbox
+                        edge="start"
+                        checked={checked.indexOf(value) !== -1}
+                        tabIndex={-1}
+                        disableRipple
+                        inputProps={{ 'aria-labelledby': labelId }}
+                      />
+                    </ListItemIcon>
+                    <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
+          </List>
 
-        {/* その他のカレンダー */}
-        <AppBar
-          color='transparent'
-          position='static'
-          elevation={0}
-        >
-          <Toolbar
-            disableGutters
-            variant='dense'
-            className={classes.toolBar}
+          {/* その他のカレンダー */}
+          <AppBar
+            color='transparent'
+            position='static'
+            elevation={0}
           >
-            <IconButton
-              size='small'
-              edge='start'
-              color='inherit'
-              aria-label='menu'
-              sx={{
-                mr: 2,
-                ml: 1
-              }}
+            <Toolbar
+              disableGutters
+              variant='dense'
+              className={classes.toolBar}
             >
-              <KeyboardArrowDownIcon />
-            </IconButton>
-            <Typography variant='subtitle2' component='div' sx={{ flexGrow: 1 }}>
-              その他のカレンダー
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-          {[0, 1, 2, 3].map((value) => {
-            const labelId = `checkbox-list-label-${value}`;
-
-            return (
-              <ListItem
-                key={value}
-                disablePadding
+              <IconButton
+                size='small'
+                edge='start'
+                color='inherit'
+                aria-label='menu'
+                sx={{
+                  mr: 2,
+                  ml: 1
+                }}
               >
-                <ListItemButton role={undefined} onClick={handleToggle(value)} dense>
-                  <ListItemIcon>
-                    <Checkbox
-                      edge="start"
-                      checked={checked.indexOf(value) !== -1}
-                      tabIndex={-1}
-                      disableRipple
-                      inputProps={{ 'aria-labelledby': labelId }}
-                    />
-                  </ListItemIcon>
-                  <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
-                </ListItemButton>
-              </ListItem>
-            );
-          })}
-        </List>
+                <KeyboardArrowDownIcon />
+              </IconButton>
+              <Typography variant='subtitle2' component='div' sx={{ flexGrow: 1 }}>
+                その他のカレンダー
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            {[0, 1, 2, 3].map((value) => {
+              const labelId = `checkbox-list-label-${value}`;
+
+              return (
+                <ListItem
+                  key={value}
+                  disablePadding
+                >
+                  <ListItemButton role={undefined} onClick={handleToggle(value)} dense>
+                    <ListItemIcon>
+                      <Checkbox
+                        edge="start"
+                        checked={checked.indexOf(value) !== -1}
+                        tabIndex={-1}
+                        disableRipple
+                        inputProps={{ 'aria-labelledby': labelId }}
+                      />
+                    </ListItemIcon>
+                    <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
+          </List>
+        </Box>
       </Box>
     </Drawer>
   );
