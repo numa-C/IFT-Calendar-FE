@@ -1,16 +1,20 @@
 import * as React from 'react';
 import { makeStyles } from '@mui/styles';
-import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import FormControl from '@mui/material/FormControl';
 import Grid, { GridSize } from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
 import Paper from '@mui/material/Paper';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import TodayIcon from '@mui/icons-material/Today';
-
 
 const useStyles = makeStyles(
   {
@@ -22,13 +26,6 @@ const useStyles = makeStyles(
   }
 );
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: "transparent",
-  color: theme.palette.text.secondary,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-}));
-
 const Calendar = () => {
   const classes = useStyles();
   const columns: { xs: GridSize, md: GridSize; } = {
@@ -36,39 +33,83 @@ const Calendar = () => {
     md: 6,
   };
 
+  const [calendarStyle, setcalendarStyle] = React.useState(String(0));
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setcalendarStyle(event.target.value as string);
+  };
+
   return (
     <>
       <Toolbar className={ classes.toolBar }>
-        <Stack direction="row" spacing={2}>
+        <Stack direction='row' spacing={2}>
           <Button
-            size="medium"
+            size='medium'
             startIcon={<TodayIcon />}
-            variant="outlined"
+            variant='outlined'
           >
             今日
           </Button>
           <IconButton
-            aria-label="calendar-back"
-            color="primary"
-            size="small"
+            aria-label='calendar-back'
+            color='primary'
+            size='small'
           >
-            <ArrowBackIosIcon fontSize="small" />
+            <ArrowBackIosIcon fontSize='small' />
           </IconButton>
           <IconButton
-            aria-label="calendar-forward"
-            color="primary"
-            size="small"
+            aria-label='calendar-forward'
+            color='primary'
+            size='small'
           >
-            <ArrowForwardIosIcon fontSize="small" />
+            <ArrowForwardIosIcon fontSize='small' />
           </IconButton>
         </Stack>
-        <Item elevation={0} sx={{ fontWeight: 'bold', fontSize: 18 }}>
+        <Typography
+          color='inherit'
+          component='h1'
+          noWrap
+          sx={{
+            flexGrow: 1,
+            fontWeight: 'bold',
+            pl: 2
+          }}
+          variant='h6'
+          >
           2021年 11月
-        </Item>
+        </Typography>
+        <Box sx={{ minWidth: 120 }}>
+          <FormControl
+            fullWidth
+            margin='dense'
+            size='small'
+            variant='outlined'
+          >
+            <InputLabel
+              id='calendar-select-label'
+              shrink
+              sx={{ fontSize: 12 }}
+            >
+              カレンダー
+            </InputLabel>
+            <Select
+              id='calendar-select'
+              label='calendar'
+              labelId='calendar-select-label'
+              onChange={handleChange}
+              value={calendarStyle}
+            >
+              <MenuItem value={0}>日</MenuItem>
+              <MenuItem value={1}>週</MenuItem>
+              <MenuItem value={2}>月</MenuItem>
+              <MenuItem value={3}>年</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
       </Toolbar>
 
       <Grid container spacing={8}>
-        <Grid item xs={ columns.xs } md={ columns.md }>
+        <Grid item xs={columns.xs} md={columns.md}>
           <Paper
             sx={{
               p: 2,
