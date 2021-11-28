@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { makeStyles, useTheme } from '@mui/styles';
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { makeStyles } from '@mui/styles';
+import { createTheme } from "@mui/material/styles";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Dashboard from './Mains/Dashboard';
