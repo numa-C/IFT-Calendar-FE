@@ -2,19 +2,17 @@ import * as React from 'react';
 import { makeStyles } from '@mui/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 import FormControl from '@mui/material/FormControl';
-import Grid, { GridSize } from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import Paper from '@mui/material/Paper';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import MenuIcon from '@mui/icons-material/Menu';
 import TodayIcon from '@mui/icons-material/Today';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 
@@ -23,17 +21,13 @@ const useStyles = makeStyles(
     toolBar: {
       maxHeight: 64,
       minHeight: '58px !important',
-      padding: 0
+      padding: 0,
     }
   }
 );
 
 const Calendar = () => {
   const classes = useStyles();
-  const columns: { xs: GridSize, md: GridSize; } = {
-    xs: 12,
-    md: 6,
-  };
 
   const [calendarStyle, setcalendarStyle] = React.useState(String(0));
 
@@ -43,7 +37,7 @@ const Calendar = () => {
 
   return (
     <>
-      <Toolbar className={ classes.toolBar }>
+      <Toolbar className={classes.toolBar}>
         <Stack direction='row' spacing={2}>
           <Button
             size='medium'
@@ -118,59 +112,10 @@ const Calendar = () => {
         </IconButton>
       </Toolbar>
 
-      <Grid container spacing={8}>
-        <Grid item xs={columns.xs} md={columns.md}>
-          <Paper
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              height: 350,
-            }}
-          >
-            カレンダー
-          </Paper>
-        </Grid>
+      <Box sx={{  bgcolor: '#cfe8fc', height: '100vh' }}>
+        {/* カレンダー本体を記述 */}
+      </Box>
 
-        <Grid item xs={columns.xs} md={columns.md}>
-          <Paper
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              height: 350,
-            }}
-          >
-            ミッションリスト
-          </Paper>
-        </Grid>
-
-        <Grid item xs={columns.xs} md={columns.md}>
-          <Paper
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              height: 350,
-            }}
-          >
-            タスクリスト
-          </Paper>
-        </Grid>
-
-        <Grid item xs={columns.xs} md={columns.md}>
-          <Paper
-            sx={{
-              p: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              height: 350,
-            }}
-          >
-            タスク更新リスト
-          </Paper>
-        </Grid>
-      </Grid>
     </>
   );
 };

@@ -11,7 +11,7 @@ import NotificationList from './Headers/NotificationList';
 import TimerMenu from './Headers/TimerMenu';
 
 
-interface AppBarProps extends MuiAppBarProps { open?: boolean };
+interface AppBarProps extends MuiAppBarProps {};
 
 const AppBar = styled(MuiAppBar, )<AppBarProps>(({ theme }) => ({
   zIndex: theme.zIndex.drawer + 1,
@@ -37,7 +37,7 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <AppBar>
+    <AppBar position='fixed'>
       <Toolbar
         sx={{
           px: '24px',

@@ -1,13 +1,24 @@
 import * as React from 'react';
-import { makeStyles } from '@mui/styles';
+import { makeStyles, useTheme } from '@mui/styles';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Dashboard from './Mains/Dashboard';
 import Calendar from './Mains/Calendar';
 
+const useStyles = (theme: any) => {
+  console.log(theme);
+  return makeStyles({
+    toolbarMargin: theme.mixins.toolbar
+  });
+};
+
 const  Main = () => {
+  const theme = createTheme();
+  const classes = useStyles(theme)();
   return (
     <Box
+      className={classes.toolbarMargin}
       component='main'
       sx={{
         backgroundColor: (theme) => theme.palette.mode === 'light'
@@ -15,10 +26,10 @@ const  Main = () => {
           : theme.palette.grey[900],
         flexGrow: 1,
         height: '100vh',
-        overflow: 'auto',
+        overflow: 'scroll',
       }}
     >
-      <Container maxWidth='xl' sx={{ mt: 6, mb: 6 }}>
+      <Container className={classes.toolbarMargin} fixed maxWidth='xl' sx={{ mt: 6, mb: 6 }} >
         {/* <Dashboard /> */}
         <Calendar />
       </Container>
