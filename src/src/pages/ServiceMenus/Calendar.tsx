@@ -204,7 +204,7 @@ const Calendar = () => {
           </Toolbar>
         </AppBar>
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-          {[0, 1, 2, 3].map((value) => {
+          {[4, 5, 6, 7].map((value) => {
             const labelId = `checkbox-list-label-${value}`;
 
             return (
