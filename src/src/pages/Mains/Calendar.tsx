@@ -14,7 +14,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import MenuIcon from '@mui/icons-material/Menu';
 import TodayIcon from '@mui/icons-material/Today';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 
 const useStyles = makeStyles(
   {
@@ -78,7 +80,7 @@ const Calendar = () => {
           >
           2021年 11月
         </Typography>
-        <Box sx={{ minWidth: 120 }}>
+        <Box sx={{ minWidth: 80 }}>
           <FormControl
             fullWidth
             margin='dense'
@@ -106,6 +108,14 @@ const Calendar = () => {
             </Select>
           </FormControl>
         </Box>
+        <IconButton
+          aria-label='calendar-mini-menu'
+          color='primary'
+          size='small'
+          sx={{ ml: 1, p: 1.5}}
+        >
+          <MenuOutlinedIcon />
+        </IconButton>
       </Toolbar>
 
       <Grid container spacing={8}>

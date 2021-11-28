@@ -8,10 +8,10 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
+import AppsIcon from '@mui/icons-material/Apps';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
 
 
 const AllServicesMenu = () => {
@@ -74,7 +74,7 @@ const AllServicesMenu = () => {
       >
         {open
           ? <ChevronLeftIcon />
-          : <MenuIcon />
+          : <AppsIcon />
         }
       </IconButton>
 
