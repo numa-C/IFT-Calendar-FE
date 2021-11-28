@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@mui/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -22,8 +22,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 const useStyles = makeStyles(
   {
     toolBar: {
-      maxHeight: 36,
-      minHeight: '24px !important',
+      maxHeight: 64,
+      minHeight: '48px !important',
       padding: 0
     }
   }
@@ -44,7 +44,9 @@ const Calendar = () => {
 
     setChecked(newChecked);
   };
+
   const classes = useStyles();
+
   return (
     <>
       <AppBar

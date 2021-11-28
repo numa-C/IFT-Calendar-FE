@@ -1,11 +1,10 @@
 import * as React from 'react';
-
+import { makeStyles } from '@mui/styles';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
 import AllServicesMenu from './Headers/AllServicesMenu';
 import UserMenu from './Headers/UserMenu';
 import NotificationList from './Headers/NotificationList';
@@ -22,13 +21,28 @@ const AppBar = styled(MuiAppBar, )<AppBarProps>(({ theme }) => ({
   })
 }));
 
+const useStyles = makeStyles(
+  {
+    toolBar: {
+      maxHeight: 48,
+      minHeight: '36px !important',
+      padding: 0
+    }
+  }
+);
+
+
 const Header = () => {
+
+  const classes = useStyles();
+
   return (
     <AppBar>
       <Toolbar
         sx={{
-          pr: '24px',
+          px: '24px',
         }}
+        className={classes.toolBar}
       >
         <AllServicesMenu />
 
@@ -39,7 +53,8 @@ const Header = () => {
           noWrap
           sx={{ flexGrow: 1 }}
         >
-          ダッシュボード
+          {/* ダッシュボード */}
+          カレンダー
         </Typography>
 
         <TimerMenu />
