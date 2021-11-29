@@ -23,9 +23,9 @@ const MissionMenu = () => {
           duration: theme.transitions.duration.leavingScreen,
         }),
         whiteSpace: 'nowrap',
-        width: theme.spacing(7),
+        width: theme.spacing(6),
         [theme.breakpoints.up('sm')]: {
-          width: theme.spacing(9),
+          width: theme.spacing(7.2),
         },
       },
     }),
@@ -34,15 +34,6 @@ const MissionMenu = () => {
   return (
     <>
       <Drawer variant='permanent'>
-        <Toolbar
-          sx={{
-            alignItems: 'center',
-            display: 'flex',
-            justifyContent: 'flex-end',
-            px: [1],
-          }}
-        >
-        </Toolbar>
         <List
           sx={{
             height: '100vh',
