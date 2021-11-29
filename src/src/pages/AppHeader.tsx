@@ -32,7 +32,7 @@ const useStyles = makeStyles(
 );
 
 
-const Header = () => {
+const AppHeader = () => {
 
   const classes = useStyles();
 
@@ -69,4 +69,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AppHeader;

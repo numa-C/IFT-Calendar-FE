@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import Header from './Header';
+import AppHeader from './AppHeader';
 import Main from './Main';
 import MissionMenu from  './MissionMenu';
 import ServiceMenu from  './ServiceMenu';
@@ -15,7 +15,7 @@ const Index = () => {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ display: 'flex' }}>
-        <Header />
+        <AppHeader />
         <MissionMenu />
         <ServiceMenu />
         <Main />
