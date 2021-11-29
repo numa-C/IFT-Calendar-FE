@@ -10,7 +10,6 @@ import UserMenu from './Headers/UserMenu';
 import NotificationList from './Headers/NotificationList';
 import TimerMenu from './Headers/TimerMenu';
 
-
 interface AppBarProps extends MuiAppBarProps {};
 
 const AppBar = styled(MuiAppBar, )<AppBarProps>(({ theme }) => ({
@@ -26,43 +25,32 @@ const useStyles = makeStyles(
     toolBar: {
       maxHeight: 48,
       minHeight: '36px !important',
-      padding: 0
+      padding: "0 10px 0 0",
     }
   }
 );
 
-
 const AppHeader = () => {
-
   const classes = useStyles();
+  const headerTitle = 'カレンダー'; // ダッシュボード
 
   return (
     <AppBar position='fixed'>
-      <Toolbar
-        sx={{
-          px: '24px',
-        }}
-        className={classes.toolBar}
-      >
+      <Toolbar className={classes.toolBar}>
         <AllServicesMenu />
-
         <Typography
-          component='h1'
-          variant='h6'
           color='inherit'
+          component='h1'
           noWrap
           sx={{ flexGrow: 1 }}
+          variant='h6'
         >
-          {/* ダッシュボード */}
-          カレンダー
+          {headerTitle}
         </Typography>
-
         <TimerMenu />
         <Box sx={{ mx: "0.7rem" }} />
-
         <NotificationList />
         <Box sx={{ mx: "0.6rem" }} />
-
         <UserMenu />
       </Toolbar>
     </AppBar>
