@@ -5,10 +5,8 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MuiDrawer from '@mui/material/Drawer';
-import Toolbar from '@mui/material/Toolbar';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import MenuIcon from '@mui/icons-material/Menu';
-
 import Calendaer from './ServiceMenus/Calendar';
 
 const useStyles = makeStyles(
@@ -22,9 +20,9 @@ const useStyles = makeStyles(
 );
 
 const ServiceMenu = () => {
+  const [open, setOpen] = React.useState(true); // should be false for default
+  const classes = useStyles();
   const drawerWidth: number = 280;
-  // const [open, setOpen] = React.useState(false);
-  const [open, setOpen] = React.useState(true); // should be fix
   const toggleDrawer = () => { setOpen(!open); };
   const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
@@ -51,29 +49,19 @@ const ServiceMenu = () => {
       },
     }),
   );
-  const classes = useStyles();
 
   return (
-    <Drawer variant='permanent' open={open} sx={{ height: '100vh', overflow: 'hidden' }}>
-      <Toolbar
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-          px: [1],
-        }}
-        className={classes.toolBar}
-      >
-      </Toolbar>
+    <Drawer open={open} variant='permanent' sx={{ height: '100vh', }}>
       <IconButton
-        aria-label='open drawer'
+        aria-label='open-drawer'
         color='inherit'
         edge='start'
-        size='large'
         onClick={toggleDrawer}
+        size='large'
         sx={{
-          marginLeft: 'calc(100% - 60px)',
-          width: '50px'
+          ml: 'calc(100% - 60px)',
+          mt: '48px',
+          width: '50px',
         }}
       >
         {open
@@ -81,12 +69,8 @@ const ServiceMenu = () => {
           : <MenuIcon />
         }
       </IconButton>
-      
       <Divider />
-
-      <Box sx={{ flexGrow: 1, overflow: 'scroll' }}>
-        <Calendaer />
-      </Box>
+      <Calendaer />
     </Drawer>
   );
 };

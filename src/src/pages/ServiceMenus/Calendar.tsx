@@ -22,8 +22,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 const useStyles = makeStyles(
   {
     toolBar: {
-      maxHeight: 64,
-      minHeight: '48px !important',
+      maxHeight: 48,
+      minHeight: '36px !important',
       padding: 0
     }
   }
@@ -31,143 +31,114 @@ const useStyles = makeStyles(
 
 const Calendar = () => {
   const [checked, setChecked] = React.useState([1]);
-
+  const classes = useStyles();
   const handleToggle = (value: number) => () => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
-
     if (currentIndex === -1) {
       newChecked.push(value);
     } else {
       newChecked.splice(currentIndex, 1);
     }
-
     setChecked(newChecked);
   };
-
-  const classes = useStyles();
+  const yearAndMonth = '2021年 11月';
 
   return (
     <>
-      <AppBar
-        color='transparent'
-        position='static'
-        elevation={0}
-      >
-        <Toolbar
-          variant='dense'
-          className={classes.toolBar}
+      <Toolbar className={classes.toolBar} variant='dense'>
+        <IconButton
+          aria-label='menu'
+          color='inherit'
+          edge='start'
+          size='small'
+          sx={{ mx: 1 }}
         >
-          <IconButton
-            size='small'
-            edge='start'
-            color='inherit'
-            aria-label='menu'
-            sx={{ mr: 2 }}
-          >
-            <KeyboardArrowDownIcon />
-          </IconButton>
-          <Typography variant='subtitle2' component='div' sx={{ flexGrow: 1 }}>
-            2021年 11月
-          </Typography>
-          <IconButton
-            size='small'
-            edge='start'
-            color='inherit'
-            aria-label='menu'
-          >
-            <ArrowUpwardIcon />
-          </IconButton>
-          <IconButton
-            size='small'
-            edge='start'
-            color='inherit'
-            aria-label='menu'
-          >
-            <ArrowDownwardIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-
+          <KeyboardArrowDownIcon />
+        </IconButton>
+        <Typography
+          component='div'
+          variant='subtitle1'
+          sx={{ flexGrow: 1 }}
+        >
+          {yearAndMonth}
+        </Typography>
+        <IconButton
+          aria-label='menu'
+          color='inherit'
+          edge='start'
+          size='small'
+        >
+          <ArrowUpwardIcon />
+        </IconButton>
+        <IconButton
+          aria-label='menu'
+          color='inherit'
+          edge='start'
+          size='small'
+        >
+          <ArrowDownwardIcon />
+        </IconButton>
+      </Toolbar>
       <Box
         sx={{
           display: 'flex',
           flexWrap: 'wrap',
           '& > :not(style)': {
-            m: '2px',
+            m: '1px',
+            height: 260,
             width: '100%',
-            height: 240,
           },
         }}
       >
-        <Paper elevation={0} />
+        <Paper elevation={0} sx={{ backgroundColor: 'gray' }} />
       </Box>
       <Divider />
-
-      <Box>
+      <Button
+        fullWidth
+        startIcon={<DateRangeIcon />}
+        sx={{
+          my: 2,
+          pl: 2,
+          justifyContent: "start"
+        }}
+        variant="text"
+      >
+        カレンダーの追加
+      </Button>
+      <Box sx={{ overflow: 'scroll' }}>
+        {/* マイカレンダー */}
         <Button
+          color='warning'
           fullWidth
-          startIcon={<DateRangeIcon />}
+          startIcon={<KeyboardArrowDownIcon />}
           sx={{
-            my: 1,
+            my: 0,
             pl: 2,
+            py: 1,
             justifyContent: "start"
           }}
           variant="text"
         >
-          カレンダーの追加
+          マイカレンダー
         </Button>
-
-        {/* マイカレンダー */}
-        <AppBar
-          color='transparent'
-          position='static'
-          elevation={0}
-        >
-          <Toolbar
-            disableGutters
-            variant='dense'
-            className={classes.toolBar}
-          >
-            <IconButton
-              size='small'
-              edge='start'
-              color='inherit'
-              aria-label='menu'
-              sx={{
-                mr: 2,
-                ml: 1
-              }}
-            >
-              <KeyboardArrowDownIcon />
-            </IconButton>
-            <Typography variant='subtitle2' component='div' sx={{ flexGrow: 1 }}>
-              マイカレンダー
-            </Typography>
-          </Toolbar>
-        </AppBar>
-
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+        <List sx={{ bgcolor: 'background.paper' }}>
           {[0, 1, 2, 3].map((value) => {
             const labelId = `checkbox-list-label-${value}`;
-
             return (
-              <ListItem
-                disablePadding
-                key={value}
-              >
+              <ListItem disablePadding key={value}>
                 <ListItemButton
+                  dense
                   role={undefined}
                   onClick={handleToggle(value)}
-                  dense
                 >
                   <ListItemIcon>
                     <Checkbox
-                      edge="start"
                       checked={checked.indexOf(value) !== -1}
-                      tabIndex={-1}
                       disableRipple
+                      edge="start"
                       inputProps={{ 'aria-labelledby': labelId }}
+                      tabIndex={-1}
                     />
                   </ListItemIcon>
                   <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
@@ -176,52 +147,38 @@ const Calendar = () => {
             );
           })}
         </List>
-
         {/* その他のカレンダー */}
-        <AppBar
-          color='transparent'
-          position='static'
-          elevation={0}
+        <Button
+          color='error'
+          fullWidth
+          startIcon={<KeyboardArrowDownIcon />}
+          sx={{
+            my: 0,
+            pl: 2,
+            py: 1,
+            justifyContent: "start"
+          }}
+          variant="text"
         >
-          <Toolbar
-            disableGutters
-            variant='dense'
-            className={classes.toolBar}
-          >
-            <IconButton
-              size='small'
-              edge='start'
-              color='inherit'
-              aria-label='menu'
-              sx={{
-                mr: 2,
-                ml: 1
-              }}
-            >
-              <KeyboardArrowDownIcon />
-            </IconButton>
-            <Typography variant='subtitle2' component='div' sx={{ flexGrow: 1 }}>
-              その他のカレンダー
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+          その他のカレンダー
+        </Button>
+        <List sx={{ bgcolor: 'background.paper' }}>
           {[4, 5, 6, 7].map((value) => {
             const labelId = `checkbox-list-label-${value}`;
-
             return (
-              <ListItem
-                key={value}
-                disablePadding
-              >
-                <ListItemButton role={undefined} onClick={handleToggle(value)} dense>
+              <ListItem key={value} disablePadding>
+                <ListItemButton
+                  dense
+                  role={undefined}
+                  onClick={handleToggle(value)}
+                >
                   <ListItemIcon>
                     <Checkbox
-                      edge="start"
                       checked={checked.indexOf(value) !== -1}
-                      tabIndex={-1}
                       disableRipple
+                      edge="start"
                       inputProps={{ 'aria-labelledby': labelId }}
+                      tabIndex={-1}
                     />
                   </ListItemIcon>
                   <ListItemText id={labelId} primary={`Line item ${value + 1}`} />

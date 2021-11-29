@@ -7,7 +7,6 @@ import Dashboard from './Mains/Dashboard';
 import Calendar from './Mains/Calendar';
 
 const useStyles = (theme: any) => {
-  console.log(theme);
   return makeStyles({
     toolbarMargin: theme.mixins.toolbar
   });
