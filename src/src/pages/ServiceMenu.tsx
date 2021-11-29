@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { makeStyles } from '@mui/styles';
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MuiDrawer from '@mui/material/Drawer';

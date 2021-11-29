@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { makeStyles } from '@mui/styles';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
