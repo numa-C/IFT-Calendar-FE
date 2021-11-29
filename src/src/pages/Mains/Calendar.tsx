@@ -27,10 +27,8 @@ const useStyles = makeStyles(
 );
 
 const Calendar = () => {
-  const classes = useStyles();
-
   const [calendarStyle, setcalendarStyle] = React.useState(String(0));
-
+  const classes = useStyles();
   const handleChange = (event: SelectChangeEvent) => {
     setcalendarStyle(event.target.value as string);
   };
