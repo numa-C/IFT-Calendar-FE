@@ -6,10 +6,14 @@ import IconButton from '@mui/material/IconButton';
 import MuiDrawer from '@mui/material/Drawer';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import MenuIcon from '@mui/icons-material/Menu';
-import Calendaer from './ServiceMenus/Calendar';
+import Calendar from './ServiceMenus/Calendar';
 
-const ServiceMenu = () => {
-  const [open, setOpen] = React.useState(true); // should be false for default
+type Props = {
+  open: boolean,
+  setOpen: any,
+};
+
+const ServiceMenu: React.FC<Props> = ({ open, setOpen }) => {
   const drawerWidth: number = 280;
   const toggleDrawer = () => { setOpen(!open); };
   const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -62,7 +66,7 @@ const ServiceMenu = () => {
           {open ? <ChevronLeftIcon /> : <MenuIcon />}
         </IconButton>
         <Divider />
-        <Calendaer />
+        <Calendar />
       </Box>
     </Drawer>
   );

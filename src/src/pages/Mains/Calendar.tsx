@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { makeStyles } from '@mui/styles';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
 import FormControl from '@mui/material/FormControl';
 import IconButton from '@mui/material/IconButton';
 import InputLabel from '@mui/material/InputLabel';
@@ -16,26 +16,32 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import TodayIcon from '@mui/icons-material/Today';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 
+type Props = {
+  open: boolean,
+};
+
 const useStyles = makeStyles(
   {
     toolBar: {
       maxHeight: 64,
       minHeight: '58px !important',
       padding: 0,
+      position: 'fixed',
     }
   }
 );
 
-const Calendar = () => {
+const Calendar: React.FC<Props> = ({ open }) => {
   const [calendarStyle, setcalendarStyle] = React.useState(String(0));
   const classes = useStyles();
   const handleChange = (event: SelectChangeEvent) => {
     setcalendarStyle(event.target.value as string);
   };
+  console.log(open); // ここのopenを使ってtoolbarの横幅を調整する
 
   return (
     <>
-      <Toolbar className={classes.toolBar}>
+      <Toolbar className={classes.toolBar} sx={{ width: 'calc(100% - 360px)', }}>
         <Stack direction='row' spacing={2}>
           <Button
             size='medium'
@@ -110,10 +116,9 @@ const Calendar = () => {
         </IconButton>
       </Toolbar>
 
-      <Box sx={{  bgcolor: '#cfe8fc', height: '100vh' }}>
+      <Box sx={{  bgcolor: '#cfe8fc', height: 'calc(100vh - 140px)', overflow: 'scroll', }}>
         {/* カレンダー本体を記述 */}
       </Box>
-
     </>
   );
 };

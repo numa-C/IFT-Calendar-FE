@@ -4,7 +4,11 @@ import Container from '@mui/material/Container';
 import Calendar from './Mains/Calendar';
 import Dashboard from './Mains/Dashboard';
 
-const  Main = () => {
+type Props = {
+  open: boolean,
+};
+
+const Main: React.FC<Props> = ({ open }) => {
 
   return (
     <Box
@@ -21,7 +25,7 @@ const  Main = () => {
         maxWidth='xl'
         sx={{ mt: 6, mb: 6, height: 'calc(100vh - 48px)', }} >
         {/* <Dashboard /> */}
-        <Calendar />
+        <Calendar open={open} />
       </Container>
     </Box>
   );
