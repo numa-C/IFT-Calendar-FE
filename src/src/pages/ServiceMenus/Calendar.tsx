@@ -105,7 +105,7 @@ const Calendar = () => {
       >
         カレンダーの追加
       </Button>
-      <Box sx={{ overflow: 'scroll' }}>
+      <Box sx={{ height: 'calc(100vh - 475px)', overflow: 'scroll' }}>
         {/* マイカレンダー */}
         <Button
           color='warning'
@@ -121,7 +121,7 @@ const Calendar = () => {
         >
           マイカレンダー
         </Button>
-        <List sx={{ bgcolor: 'background.paper' }}>
+        <List sx={{ bgcolor: 'background.paper'}}>
           {[0, 1, 2, 3].map((value) => {
             const labelId = `checkbox-list-label-${value}`;
             return (

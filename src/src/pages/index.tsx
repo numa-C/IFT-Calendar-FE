@@ -1,11 +1,8 @@
 import * as React from 'react';
-
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-
-import AppHeader from './AppHeader';
 import AppBody from './AppBody';
+import AppHeader from './AppHeader';
 
 const Index = () => {
   const theme = createTheme();
