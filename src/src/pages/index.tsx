@@ -10,12 +10,11 @@ import MissionMenu from  './MissionMenu';
 import ServiceMenu from  './ServiceMenu';
 
 const Index = () => {
-  const mdTheme = createTheme();
+  const theme = createTheme();
 
   return (
-    <ThemeProvider theme={mdTheme}>
+    <ThemeProvider theme={theme}>
       <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
         <Header />
         <MissionMenu />
         <ServiceMenu />

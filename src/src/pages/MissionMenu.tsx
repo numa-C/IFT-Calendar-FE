@@ -34,7 +34,7 @@ const MissionMenu = () => {
   );
 
   return (
-    <React.Fragment>
+    <>
       <Drawer variant='permanent'>
         <Toolbar
           sx={{
@@ -45,7 +45,14 @@ const MissionMenu = () => {
           }}
         >
         </Toolbar>
-        <List>
+        <List
+          sx={{
+            height: '100vh',
+            mt: '48px',
+            overflow: 'scroll',
+            position: 'fixed',
+          }}
+        >
           <ListItem button>
             <ListItemIcon>
               <ShoppingCartIcon />
@@ -71,9 +78,14 @@ const MissionMenu = () => {
               <LayersIcon />
             </ListItemIcon>
           </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <LayersIcon />
+            </ListItemIcon>
+          </ListItem> 
         </List>
       </Drawer>
-    </React.Fragment>
+    </>
   );
 };
 
