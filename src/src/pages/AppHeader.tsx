@@ -25,7 +25,7 @@ const useStyles = makeStyles(
     toolBar: {
       maxHeight: 48,
       minHeight: '36px !important',
-      padding: "0 10px 0 0",
+      padding: '0 10px 0 0',
     }
   }
 );
@@ -48,9 +48,9 @@ const AppHeader = () => {
           {headerTitle}
         </Typography>
         <TimerMenu />
-        <Box sx={{ mx: "0.7rem" }} />
+        <Box sx={{ mx: '0.7rem' }} />
         <NotificationList />
-        <Box sx={{ mx: "0.6rem" }} />
+        <Box sx={{ mx: '0.6rem' }} />
         <UserMenu />
       </Toolbar>
     </AppBar>
