@@ -14,23 +14,13 @@ type Props = {
 };
 
 const ServiceMenu: React.FC<Props> = ({ open, setOpen }) => {
-  const drawerWidth: number = 280;
+  const drawerWidth: number = open ? 280 : 40;
   const toggleDrawer = () => { setOpen(!open); };
   const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
       '& .MuiDrawer-paper': {
         boxSizing: 'border-box',
-        ...(!open && {
-          overflowX: 'hidden',
-          transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-          }),
-          width: theme.spacing(7),
-          [theme.breakpoints.up('sm')]: {
-            width: theme.spacing(9),
-          },
-        }),
+        overflowX: 'hidden',
         position: 'relative',
         transition: theme.transitions.create('width', {
           easing: theme.transitions.easing.sharp,
@@ -38,6 +28,10 @@ const ServiceMenu: React.FC<Props> = ({ open, setOpen }) => {
         }),
         whiteSpace: 'nowrap',
         width: drawerWidth,
+        ...(!open && {
+          backgroundColor: theme.palette.grey[100],
+          borderRight: 'none',
+        }),
       },
     }),
   );
@@ -49,7 +43,7 @@ const ServiceMenu: React.FC<Props> = ({ open, setOpen }) => {
           height: '100vh',
           mt: '48px',
           position: 'fixed',
-          width: '279px',
+          width: open ? '270px': '65px',
         }}
       >
         <IconButton
@@ -65,8 +59,8 @@ const ServiceMenu: React.FC<Props> = ({ open, setOpen }) => {
         >
           {open ? <ChevronLeftIcon /> : <MenuIcon />}
         </IconButton>
-        <Divider />
-        <Calendar />
+        {open && <Divider />}
+        {open && <Calendar />}
       </Box>
     </Drawer>
   );
