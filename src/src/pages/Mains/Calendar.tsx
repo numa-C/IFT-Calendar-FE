@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { makeStyles } from '@mui/styles';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
@@ -37,11 +36,10 @@ const Calendar: React.FC<Props> = ({ open }) => {
   const handleChange = (event: SelectChangeEvent) => {
     setcalendarStyle(event.target.value as string);
   };
-  console.log(open); // ここのopenを使ってtoolbarの横幅を調整する
 
   return (
     <>
-      <Toolbar className={classes.toolBar} sx={{ width: 'calc(100% - 360px)', }}>
+      <Toolbar className={classes.toolBar} sx={{ width: open ? 'calc(100% - 360px)': 'calc(100% - 153px)', }}>
         <Stack direction='row' spacing={2}>
           <Button
             size='medium'
