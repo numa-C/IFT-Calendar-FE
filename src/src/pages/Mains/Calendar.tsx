@@ -15,6 +15,15 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import TodayIcon from '@mui/icons-material/Today';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import LayersIcon from '@mui/icons-material/Layers';
+import PeopleIcon from '@mui/icons-material/People';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 type Props = {
   open: boolean,
 };
@@ -25,7 +34,7 @@ const useStyles = makeStyles(
       maxHeight: 64,
       minHeight: '58px !important',
       padding: 0,
-      position: 'fixed',
+      top: '48px',
     }
   }
 );
@@ -39,7 +48,7 @@ const Calendar: React.FC<Props> = ({ open }) => {
 
   return (
     <>
-      <Toolbar className={classes.toolBar} sx={{ width: open ? 'calc(100% - 360px)': 'calc(100% - 153px)', }}>
+      <Toolbar className={classes.toolBar} sx={{ width: '100%', }}>
         <Stack direction='row' spacing={2}>
           <Button
             size='medium'
@@ -114,8 +123,19 @@ const Calendar: React.FC<Props> = ({ open }) => {
         </IconButton>
       </Toolbar>
 
-      <Box sx={{  bgcolor: '#cfe8fc', height: 'calc(100vh - 140px)', overflow: 'scroll', }}>
-        {/* カレンダー本体を記述 */}
+      <Box sx={{  position: 'static', bgcolor: '#cfe8fc', height: 'calc(100vh - 120px)', mt: '50px' }}>
+        <Box
+          sx={{
+            bgcolor: 'yellow',
+            height: 'calc(100vh - 120px)',
+            overflow: 'scroll',
+            width: '100%',
+          }}
+        >
+          {/* カレンダー本体を記述 */}
+          <Box sx={{ height: '100vh' }}>
+          </Box>
+        </Box>
       </Box>
     </>
   );

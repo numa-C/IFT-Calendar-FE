@@ -23,7 +23,8 @@ const Main: React.FC<Props> = ({ open }) => {
       <Container
         fixed
         maxWidth='xl'
-        sx={{ mt: 6, mb: 6, height: 'calc(100vh - 48px)', }} >
+        sx={{ height: '100vh' }}
+      >
         {/* <Dashboard /> */}
         <Calendar open={open} />
       </Container>
